@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  dukescript-swagger-codegen - a library from the "DukeScript" project.
+  %%
+  Copyright (C) 2018 Dukehoff GmbH
+  %%
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+  #L%
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dukescript.swagger</groupId>
+    <artifactId>dukescript-swagger-codegen</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <comments>
+                The API is free to use with the MIT license.
+            </comments>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/dukescript/dukescript-swagger-codegen.git</connection>
+        <url>https://github.com/dukescript/dukescript-swagger-codegen.git</url>
+        <developerConnection>scm:git:https://github.com/dukescript/dukescript-swagger-codegen.git</developerConnection>
+    </scm>
+    <modules>
+        <module>client</module>
+        <module>demo</module>
+    </modules>
+    <properties>
+        <main.basedir>${project.basedir}</main.basedir>
+        <net.java.html.version>1.5.1</net.java.html.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <swagger-annotations-version>1.5.21</swagger-annotations-version>
+        <jersey-version>2.25.1</jersey-version>
+        <jackson-version>2.9.5</jackson-version>
+        <jodatime-version>2.7</jodatime-version>
+        <maven-plugin-version>1.0.0</maven-plugin-version>
+        <junit-version>4.8.1</junit-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.16</version>
+                <configuration>
+                    <inceptionYear>2018</inceptionYear>
+                    <organizationName>Dukehoff GmbH</organizationName>
+                    <licenseName>mit</licenseName>
+                    <failOnMissingHeader>true</failOnMissingHeader>
+                    <descriptionTemplate>${main.basedir}/src/license/header.txt</descriptionTemplate>
+                    <acceptPomPackaging>true</acceptPomPackaging>
+                    <roots>
+                        <root>.</root>
+                    </roots>
+                    <excludes>
+                        <exclude>**/target/**</exclude>
+                        <exclude>**/.gradle/**</exclude>
+                        <exclude>**/petstore.json</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate-headers</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>update-file-header</goal>
+                            <goal>check-file-header</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>  
+        </plugins>
+    </build>
+</project>
