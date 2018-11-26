@@ -12,11 +12,7 @@ import net.java.html.json.Property;
 
 @Model(className = "{{classname}}", targetId = "", properties = {
 {{#vars}} 
-    {{^-first}}, {{/-first}}{{^isListContainer}}@Property(name = "{{baseName}}", type = {{baseType}}.class)
-     {{/isListContainer}}
-    {{#isListContainer}}
-    @Property(name = "{{baseName}}", type = {{#items}}{{datatype}}{{/items}}.class, array=true)
-     {{/isListContainer}}
+    {{^-first}}, {{/-first}}{{^isListContainer}}@Property(name = "{{baseName}}", type = {{baseType}}.class){{/isListContainer}}{{#isListContainer}}@Property(name = "{{baseName}}", type = {{#items}}{{datatype}}{{/items}}.class, array=true){{/isListContainer}}
 {{/vars}}
   }
 )
