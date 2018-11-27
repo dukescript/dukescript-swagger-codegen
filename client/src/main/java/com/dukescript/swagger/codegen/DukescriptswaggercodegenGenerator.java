@@ -56,7 +56,7 @@ public class DukescriptswaggercodegenGenerator extends DefaultCodegen implements
                 "VMD.java");
 //        apiTemplateFiles.put(
 //                "api.mustache",
-//                ".java");
+//                "Connector.java");
         templateDir = "DukeScriptSwaggerCodegen";
         apiPackage = "io.swagger.client.api";
         modelPackage = "io.swagger.client.model";
